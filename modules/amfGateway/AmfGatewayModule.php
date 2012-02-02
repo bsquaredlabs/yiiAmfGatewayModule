@@ -1,17 +1,18 @@
 <?php
 
 /**
- * The module amf_gateway permits anyone to have a very easily configurable
+ * The module amfGateway permits anyone to have a very easily configurable
  * RPC with Flash and Flex. The underlying AMF mechanism uses Zend AMF. This
  * module contains Zend AMF 1.1.8.
  * 
- * To add AMF functionality to your Yii project, just copy the amf_gateway folder
+ * To add AMF functionality to your Yii project, just copy the amfGateway folder
  * in the modules/ directory of your project and add the following to your 
  * 'modules' record in main.php:
  *  
  * 'modules' => array(
-  'amf_gateway' => array(
+  'amfGateway' => array(
   'servicesDirAlias' => 'application.services.amf',
+  'production' => TRUE,
   )
   ),
  * 
