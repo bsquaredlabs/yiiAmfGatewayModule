@@ -1,10 +1,10 @@
 <?php
-/**
- * This is the class-gateway to php-actionscript
- * @author Vassilis Papapanagiotou
- * @version 0.1
- * @package application.controllers
- */
+/*
+* @author Vassilis Papapanagiotou <bpapapana@gmail.com>, Vassilis Triglianos <triglian@gmail.com>
+* @link https://github.com/bsquaredlabs/YiiAmfGateway
+* @copyright Copyright &copy; 2011 BSquaredLabs(http://bsquaredlabs.com),Vassilis Papapanagiotou & Vassilis Triglianos
+* @license http://bsquaredlabs.com/licenses/YiiAmfGatewayLicense
+*/
 class DefaultController extends AmfController
 {
 	public function actionIndex() {

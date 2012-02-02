@@ -1,4 +1,9 @@
-﻿
+﻿/*
+* @author Vassilis Papapanagiotou <bpapapana@gmail.com>, Vassilis Triglianos <triglian@gmail.com>
+* @link https://github.com/bsquaredlabs/YiiAmfGateway
+* @copyright Copyright &copy; 2011 BSquaredLabs(http://bsquaredlabs.com),Vassilis Papapanagiotou & Vassilis Triglianos
+* @license http://bsquaredlabs.com/licenses/YiiAmfGatewayLicense
+*/
 package 
 {
 
