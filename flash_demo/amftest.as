@@ -47,8 +47,6 @@ public function print_a(obj:*, level:int = 0, output:String = ""):* {
 			/*Zend_AMF Test*/
 			con.connect(gateway);
 			con.call("TestService.getMessage", new Responder(onResult, onFault), "Hello World!", "hello 2!");
-			//con.connect(gateway);
-//			con.call("BakerMasterDbAmfService.load_test", new Responder(onResult, onFault), "flashuser", "12flash34", "Company");
 
 
 		}
