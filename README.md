@@ -31,6 +31,7 @@ methods that are exposed to Flash/Flex are found in the `application.services.am
 directory which essentially is `protected/services/amf`. You can find an example
 in the `services/amf/TestService.php` file that is provided.
 
+
 If you have any problem while setting it up and you want to see more error messages,
 change the 'production' parameter seen above to FALSE.
 
@@ -38,7 +39,56 @@ Zend AMF is located in the vendors/ folder inside the module folder. If it is
 not up-to-date can be easily updated by downloading Zend AMF from 
 `http://framework.zend.com/download/amf` and then extracting the Zend folder
 directly into the Zend folder.
- 
+
+##Using the module while still having the CSRF  protection enabled for the rest of the application
+
+The module will not work if you have CSRF protection enabled for the application.
+One of the ways to make it work, is to disable the CSRF protection only for the module.
+To this end the user backloop from the Yii framework forum suggested a solution.
+To summarize it:
+
+1) Extend CHttpRequest (created /components/FlkHttpRequest.php):
+
+```php
+class FlkHttpRequest extends CHttpRequest
+{
+        public $noCsrfValidationRoutes=array();
+
+        protected function normalizeRequest()
+        {
+                parent::normalizeRequest();
+                
+                if($this->enableCsrfValidation)
+                {
+                        $currentRoute=Yii::app()->getUrlManager()->parseUrl($this);
+                        foreach($this->noCsrfValidationRoutes as $route)
+                        {
+                                if(strpos($currentRoute,$route)===0)
+                                        Yii::app()->detachEventHandler('onBeginRequest',array($this,'validateCsrfToken'));
+                        }
+                }
+        }       
+}
+```
+
+2) Configure it in /config/main.php:
+
+```php
+'components'=>array(
+        ...
+        ...,
+        'request'=>array(
+                'class'=>'FlkHttpRequest',
+                'enableCsrfValidation'=>true,
+                'noCsrfValidationRoutes'=>array('amfGateway'),
+        ),
+),
+```
+
+
+
+The original post can be found here: hhttp://www.yiiframework.com/forum/index.php/topic/28641-extension-yii-zend-amf-module/
+
 ## Demo
 
 You can view a demo live at: TODO
