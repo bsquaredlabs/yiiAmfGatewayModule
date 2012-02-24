@@ -87,7 +87,8 @@ class FlkHttpRequest extends CHttpRequest
 
 
 
-The original post can be found here: hhttp://www.yiiframework.com/forum/index.php/topic/28641-extension-yii-zend-amf-module/
+The original post can be found here: 
+http://www.yiiframework.com/forum/index.php/topic/28641-extension-yii-zend-amf-module/
 
 ## Demo
 
